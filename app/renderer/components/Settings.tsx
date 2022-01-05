@@ -44,6 +44,13 @@ export default function SettingsEl() {
     setSettingsDraft({ ...settingsDraft, notificationType });
   };
 
+  const handleLanguageChange = (
+    e: React.ChangeEvent<HTMLSelectElement>
+  ): void => {
+    const language = e.target.value as string;
+    setSettingsDraft({ ...settingsDraft, language });
+  };
+
   const handleDateChange = (field: keyof Settings, newVal: Date): void => {
     setSettingsDraft({
       ...settingsDraft,
@@ -442,6 +449,22 @@ export default function SettingsEl() {
                       onChange={handleSwitchChange.bind(null, "autoLaunch")}
                     />
                   </FormGroup>
+                  <FormGroup label="Language">
+                  <HTMLSelect
+                    value={settingsDraft.language}
+                    options={[
+                      {
+                        value: "en",
+                        label: "English",
+                      },
+                      {
+                        value: "am",
+                        label: "አማርኛ",
+                      },
+                    ]}
+                    onChange={handleLanguageChange}
+                  />
+                </FormGroup>
                 </React.Fragment>
               }
             />

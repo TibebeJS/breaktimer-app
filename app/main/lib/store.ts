@@ -32,6 +32,7 @@ const defaultSettings: Settings = {
   endBreakEnabled: true,
   skipBreakEnabled: false,
   postponeBreakEnabled: true,
+  language: "en"
 };
 
 const store = new Store<{
